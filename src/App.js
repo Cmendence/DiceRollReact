@@ -1,9 +1,8 @@
 
-import Table from 'react-bootstrap/esm/Table';
 import './App.css';
 import Dice from './Components/Dice';
 import Header from './Components/Header';
-import DiceTable from './Components/Table';
+import DiceTable from './Components/DiceTable';
 import React from 'react'
 import ClearResults from './Components/ClearResults';
 import CustomRoll from './Components/CustomRoll';
