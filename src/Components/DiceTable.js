@@ -9,7 +9,8 @@ export default function DiceTable(props) {
           <th>Sides</th>
           <th>Result</th>
         </tr>
-       
+      </thead>
+        <tbody>
         {props.results.map(roll => {
          return(
           <tr key={roll.time}>
@@ -18,10 +19,8 @@ export default function DiceTable(props) {
          <td>{roll.result}</td>
          </tr> 
         )})}
-      </thead>
-      <tbody>
-        {}
-      </tbody>
+      </tbody> 
+  
     </Table>
   );
 }

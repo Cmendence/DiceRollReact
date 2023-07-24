@@ -28,7 +28,7 @@ function handleChange(e){
          onChange={handleChange}
          />
          </div>
-         <button className="btn btn-warning mt-2" onClick={()=> handleClick(customSides)}>Roll Custom</button>
+         <button className="btn btn-warning mt-2 custom" onClick={()=> handleClick(customSides)}>Roll Custom</button>
       </div>
    )
 }

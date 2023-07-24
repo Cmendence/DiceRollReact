@@ -1,4 +1,5 @@
 body {
+   background-color: rgb(203, 211, 244);
   margin: 0;
   font-family: "Space Mono", monospace;
   -webkit-font-smoothing: antialiased;
@@ -10,4 +11,23 @@ code {
     monospace;
 }
 
+.btn {
+background-color: rgb(176, 63, 199);
+border: none;
+border-radius: 8px;
+}
+
+.custom {
+   color: white;
+}
+
+.clear {
+   background-color: rgb(190, 32, 79);
+}
+
+input {
+   border: 1px solid black;
+   border-radius: 5px;
+   text-indent: 6px;
+}
 
