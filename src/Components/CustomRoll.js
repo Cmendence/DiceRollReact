@@ -6,8 +6,9 @@ export default function CustomRoll(props) {
 const {getRandomInt,
        addResult, 
        rolling,
-       startRolling, 
-       stopRolling} = props;
+      //  startRolling, 
+      //  stopRolling
+   } = props;
 const [customSides, setCustomSides] = React.useState('');
 const [errorMessage, setErrorMessage] = React.useState('');
 const [isSpinning, setIsSpinning] = React.useState(false);
