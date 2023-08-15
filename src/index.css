@@ -31,3 +31,29 @@ input {
    border-radius: 5px;
    text-indent: 6px;
 }
+
+.spin-button {
+   background-color: #007bff;
+   color: white;
+   border: none;
+   padding: 10px 20px;
+   border-radius: 4px;
+   cursor: pointer;
+}
+
+.spinning-image {
+   width: 200px;
+   height: 200px;
+   margin-top: 20px;
+   cursor: pointer;
+}
+
+.spin {
+   animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+   100% {
+      transform: rotate(360deg);
+   }
+}

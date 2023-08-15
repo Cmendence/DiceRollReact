@@ -1,6 +1,9 @@
 import Table from 'react-bootstrap/Table';
 
 export default function DiceTable(props) {
+
+console.log(props)
+
   return (
     <Table striped>
       <thead>

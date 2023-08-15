@@ -1,17 +1,16 @@
 import React from "react";
+import { motion } from 'framer-motion';
+
 
 export default function CustomRoll(props) {
-const {getRandomInt, addResult} = props;
+const {getRandomInt,
+       addResult, 
+       rolling,
+       startRolling, 
+       stopRolling} = props;
 const [customSides, setCustomSides] = React.useState('');
 const [errorMessage, setErrorMessage] = React.useState('');
-const [isCleared, setisCleared] = React.useState(false)
-
-function clearCustom() {
-   setCustomSides('');
-   setErrorMessage('');
-   setisCleared(true);
-   setTimeout(()=> setisCleared(false), 1000);
-}
+const [isSpinning, setIsSpinning] = React.useState(false);
 
 
 function handleClick(sides) {
@@ -24,12 +23,16 @@ function handleClick(sides) {
    addResult(sides, result);
    
    setErrorMessage('')
+   setIsSpinning(true);
+   setTimeout(() => setIsSpinning(false), 800);
 }
 
 function handleChange(e){
    const input = e.target.value
    setCustomSides(input)
 }
+
+
 
    return (
       <div>
@@ -41,20 +44,27 @@ function handleChange(e){
          value={customSides}
          onChange={handleChange}
          />
-         {/* <button className="btn ms-2  clear" onClick={()=> clearCustom()}>Clear</button> */}
-
-         <button className={`btn ${isCleared? 'btn-success' : 'clear'} mb-2 ms-2 mt-1`} onClick={()=> clearCustom()}>
-      {isCleared ? 'Cleared!' : 'Clear'}
-   </button>
-
+            <motion.button 
+               
+               onClick={()=> handleClick(customSides)}
+               className={` ${isSpinning ? 'spin' : ''}btn ms-2  custom`}
+               animate={{ rotate: isSpinning ? 540 : 0 }}
+               transition={{ duration: 1 }}
+               disabled={rolling || isSpinning}
+            >
+               {rolling ? 'Rolling' : 'Roll Custom'}
+            </motion.button>
          </div>
          <div>  
-            {errorMessage && ( 
+            {errorMessage ? ( 
             <small className="text-danger">{errorMessage}</small>
-            )}
+            )
+            :
+            (<small className="text-danger">&nbsp;</small>)
+            
+            }
          </div>
       
-         <button className="btn mt-2 custom" onClick={()=> handleClick(customSides)}>Roll Custom</button>
       </div>
    )
 }

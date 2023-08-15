@@ -9,10 +9,11 @@ import CustomRoll from './Components/CustomRoll';
 import RollResult from './Components/RollResult';
 
 
+
 function App() {
    
    const [results, setResults] = React.useState([])
-   console.log(results)
+   const [rolling, setRolling] = React.useState(false);
    
    function getRandomInt(max) {
       let result = Math.floor(Math.random() * Math.floor(max)) + 1;
@@ -32,20 +33,38 @@ function addResult(sides, result){
       setResults([]);
    }
 
+   function startRolling() {
+      setRolling(true)
+   }
+
+   function stopRolling() {
+      setRolling(false)
+   }
+
+console.log(results)
 
   return (
     <div className="App">
     <Header />
+ 
     <RollResult results = {results} />
-    <ClearResults clearResults={clearResults}/>
-    <Dice 
+    <ten />
+    <Dice
+      rolling={rolling}
       getRandomInt={getRandomInt}
       addResult={addResult} 
+      startRolling={startRolling}
+      stopRolling={stopRolling}
+   
      />
      <CustomRoll 
+      rolling={rolling}
       getRandomInt={getRandomInt}
       addResult={addResult}
+      startRolling={startRolling}
+      stopRolling={stopRolling}
       />
+    <ClearResults clearResults={clearResults}/>
     <DiceTable results={results}/>
     </div>
   );
