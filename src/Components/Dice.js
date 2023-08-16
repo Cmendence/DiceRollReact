@@ -1,12 +1,18 @@
 import React from 'react'
 import DiceButton from './DiceButton';
-import four from '../images/pink4.svg'
-import six from '../images/6pinkBLANK.svg'
-import eight from '../images/8pinkBLANK.svg'
-import ten from '../images/10pinkBLANK.svg'
-import twelve from '../images/12pinkBLANK.svg'
-import twenty from '../images/20pinkBLANK.svg'
+// import fourPINK from '../images/pink/4pinkBLANK.svg'
+// import sixPINK from '../images/pink/6pinkBLANK.svg'
+// import eightPINK from '../images/pink/8pinkBLANK.svg'
+// import tenPINK from '../images/pink/10pinkBLANK.svg'
+// import twelvePINK from '../images/pink/12pinkBLANK.svg'
+// import twentyPINK from '../images/pink/20pinkBLANK.svg'
 import percentile from '../images/Placeholder100.svg'
+import four from '../images/NumberedDice/4num.svg'
+import six from '../images/NumberedDice/6num.svg'
+import eight from '../images/NumberedDice/8num.svg'
+import ten from '../images/NumberedDice/10num.svg'
+import twelve from '../images/NumberedDice/12num.svg'
+import twenty from '../images/NumberedDice/20num.svg'
 
 
 export default function Dice(props) {
@@ -26,7 +32,7 @@ function handleClick(sides) {
 
    return (
       <div className='container'>
-          <div className="row row-cols-1 row-cols-md-2 g-2">
+          <div className="row g-2 mb-4">
                 <div className="col">
          <DiceButton 
             className='btn me-2 mb-2' 

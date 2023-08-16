@@ -19,9 +19,13 @@ export default function DiceButton(
 
    const handleClick = () => {
       setIsSpinning(true);
-      setTimeout(() => setIsSpinning(false), 800);
-      const result = getRandomInt(sides);
-      addResult(sides, result);
+      startRolling()
+      setTimeout(() => {
+          setIsSpinning(false)
+          const result = getRandomInt(sides);
+          addResult(sides, result);
+          stopRolling()
+         }, 900);
    };
 
 
@@ -34,17 +38,9 @@ export default function DiceButton(
       animate={{ rotate: isSpinning ? 0 : 720 }}
       transition={{ duration: 1 }}
       onClick={handleClick}
-      disabled={rolling || isSpinning}
+      style={{ pointerEvents: rolling || isSpinning ? 'none' : 'auto' }}
       
    />
-      {/* <motion.button
-      className={`btn me-2 mb-2}`}
-      onClick={handleClick}
-      disabled={rolling || isSpinning}
-      whileTap={{ scale: 0.9 }}
-   >
-      {rolling || isSpinning ? 'Rolling' : `D${sides}`}
-   </motion.button> */}
 
    </div>
    )

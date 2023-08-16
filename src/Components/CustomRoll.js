@@ -6,12 +6,13 @@ export default function CustomRoll(props) {
 const {getRandomInt,
        addResult, 
        rolling,
-      //  startRolling, 
-      //  stopRolling
+       startRolling, 
+       stopRolling
    } = props;
 const [customSides, setCustomSides] = React.useState('');
 const [errorMessage, setErrorMessage] = React.useState('');
 const [isSpinning, setIsSpinning] = React.useState(false);
+
 
 
 function handleClick(sides) {
@@ -20,20 +21,21 @@ function handleClick(sides) {
       setErrorMessage('Please enter a valid number');
       return
    }
-   const result = getRandomInt(sides);
-   addResult(sides, result);
-   
+   startRolling()
    setErrorMessage('')
    setIsSpinning(true);
-   setTimeout(() => setIsSpinning(false), 800);
+   setTimeout(() => {
+      setIsSpinning(false)
+      const result = getRandomInt(sides);
+      addResult(sides, result);
+      stopRolling()
+   }, 900);
 }
 
 function handleChange(e){
    const input = e.target.value
    setCustomSides(input)
 }
-
-
 
    return (
       <div>
@@ -53,7 +55,7 @@ function handleChange(e){
                transition={{ duration: 1 }}
                disabled={rolling || isSpinning}
             >
-               {rolling ? 'Rolling' : 'Roll Custom'}
+               Roll Custom
             </motion.button>
          </div>
          <div>  

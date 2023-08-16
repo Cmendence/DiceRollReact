@@ -47,8 +47,11 @@ console.log(results)
     <div className="App">
     <Header />
  
-    <RollResult results = {results} />
-    <ten />
+    <RollResult 
+      results={results} 
+      rolling={rolling}
+   />
+
     <Dice
       rolling={rolling}
       getRandomInt={getRandomInt}

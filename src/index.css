@@ -42,10 +42,16 @@ input {
 }
 
 .spinning-image {
-   width: 200px;
-   height: 200px;
-   margin-top: 20px;
+   width: 100px;
+   height: 100px;
+   margin-top: 10px;
    cursor: pointer;
+}
+
+@media (max-width: 576px) {
+   .spinning-image {
+       max-width: 75px;
+   }
 }
 
 .spin {
@@ -56,4 +62,29 @@ input {
    100% {
       transform: rotate(360deg);
    }
+}
+
+
+.input-container {
+  position: relative;
+}
+
+.input-container.focused {
+  border: 1px solid #80bdff; /* Highlight the input when focused */
+}
+
+.clear-button {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.clear-button:hover {
+  color: #777;
 }
