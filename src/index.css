@@ -11,19 +11,19 @@ code {
     monospace;
 }
 
-.btn {
+.custom {
 background-color: rgb(176, 63, 199);
 border: none;
-border-radius: 8px;
+border-radius: 6px;
 color: white;
+padding: 3px 10px;
 }
 
-.custom {
-   color: white;
-}
 
 .clear {
+   color: white;
    background-color: rgb(190, 32, 79);
+   border-radius: 6px;
 }
 
 input {
@@ -32,14 +32,7 @@ input {
    text-indent: 6px;
 }
 
-.spin-button {
-   background-color: #007bff;
-   color: white;
-   border: none;
-   padding: 10px 20px;
-   border-radius: 4px;
-   cursor: pointer;
-}
+
 
 .spinning-image {
    width: 100px;
@@ -48,43 +41,61 @@ input {
    cursor: pointer;
 }
 
+.spinning-percentile {
+   width: 75px;
+   height: 75px;
+   margin-top: 10px;
+   cursor: pointer;
+   ;
+}
+
 @media (max-width: 576px) {
    .spinning-image {
        max-width: 75px;
    }
 }
 
-.spin {
-   animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-   100% {
-      transform: rotate(360deg);
+@media (max-width: 576px) {
+   .spinning-percentile {
+       max-width: 55px;
    }
 }
 
+.spinning-percentile.spin-clockwise {
+   animation: spin-clockwise 1s ease-out forwards;
+ }
+.spinning-percentile.spin-counterclockwise {
+   animation: spin-counterclockwise 1s ease-out forwards;
+ }
 
-.input-container {
-  position: relative;
-}
 
-.input-container.focused {
-  border: 1px solid #80bdff; /* Highlight the input when focused */
-}
+.spinning-image.spin {
+   animation: spin 1s ease-out forwards;
+ }
+ 
+ @keyframes spin {
+   0% {
+     transform: rotate(0deg);
+   }
+   100% {
+     transform: rotate(1090deg);
+   }
+ }
+ 
+ @keyframes spin-counterclockwise {
+   0% {
+      transform: rotate(0deg);
+   }
+   100% {
+      transform: rotate(-1090deg);
+   }
+ }
 
-.clear-button {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  color: #ccc;
-}
-
-.clear-button:hover {
-  color: #777;
-}
+ @keyframes spin-clockwise {
+   0% {
+     transform: rotate(0deg);
+   }
+   100% {
+     transform: rotate(1090deg);
+   }
+ }

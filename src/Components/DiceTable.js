@@ -1,8 +1,9 @@
 import Table from 'react-bootstrap/Table';
 
-export default function DiceTable(props) {
+export default function DiceTable({results}) {
 
-console.log(props)
+   //reversed results array so the most recent roll is at the top.
+   const resultsDisplay = [...results].reverse(); 
 
   return (
     <Table striped>
@@ -14,12 +15,12 @@ console.log(props)
         </tr>
       </thead>
         <tbody>
-        {props.results.map(roll => {
+        {resultsDisplay.map(roll => {
          return(
           <tr key={roll.time}>
          <td>{roll.time}</td>
          <td>{roll.sides}</td>
-         <td>{roll.result}</td>
+         <td className='fw-bold'>{roll.result}</td>
          </tr> 
         )})}
       </tbody> 

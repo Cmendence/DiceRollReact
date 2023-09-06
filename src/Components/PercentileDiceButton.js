@@ -1,7 +1,8 @@
 import React from 'react'
 
 
-export default function DiceButton(
+export default function PercentileDiceButton(
+
    {
       sides, 
       getRandomInt, 
@@ -10,11 +11,14 @@ export default function DiceButton(
       startRolling,
       stopRolling,
       diceImage,
+      direction,
+      isSpinning,
+      setIsSpinning
      
       }) {
 
 
-   const [isSpinning, setIsSpinning] = React.useState(false);
+   
 
    const handleClick = () => {
       setIsSpinning(true);
@@ -32,9 +36,10 @@ export default function DiceButton(
         <img
           src={diceImage}
           alt="Spinning Dice"
-          className={`spinning-image ${isSpinning ? 'spin' : ''}`}
+          className={`spinning-percentile ${isSpinning ? `spin-${direction}` : ''}`}
           onClick={handleClick}
           style={{ pointerEvents: rolling || isSpinning ? 'none' : 'auto' }}
+          
         />
       </div>
     );

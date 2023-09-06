@@ -4,8 +4,8 @@ import React from 'react'
 export default function Header() {
    return (
       <div>
-      <h1>Dice Rolling App</h1>
-      <p>Click the dice you'd like to roll!</p>
+      <h2>Dice Rolling App</h2>
+      <span>Click the dice you'd like to roll!</span>
       </div>
    )
 }

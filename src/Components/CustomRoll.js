@@ -1,17 +1,20 @@
 import React from "react";
-import { motion } from 'framer-motion';
 
 
-export default function CustomRoll(props) {
-const {getRandomInt,
-       addResult, 
-       rolling,
-       startRolling, 
-       stopRolling
-   } = props;
+
+export default function CustomRoll(
+   {
+   getRandomInt,
+   addResult, 
+   rolling,
+   startRolling, 
+   stopRolling
+}) 
+{
+
 const [customSides, setCustomSides] = React.useState('');
 const [errorMessage, setErrorMessage] = React.useState('');
-const [isSpinning, setIsSpinning] = React.useState(false);
+const [isRolling, setIsRolling] = React.useState(false);
 
 
 
@@ -23,9 +26,9 @@ function handleClick(sides) {
    }
    startRolling()
    setErrorMessage('')
-   setIsSpinning(true);
+   setIsRolling(true);
    setTimeout(() => {
-      setIsSpinning(false)
+      setIsRolling(false)
       const result = getRandomInt(sides);
       addResult(sides, result);
       stopRolling()
@@ -47,16 +50,15 @@ function handleChange(e){
          value={customSides}
          onChange={handleChange}
          />
-            <motion.button 
-               
-               onClick={()=> handleClick(customSides)}
-               className={` ${isSpinning ? 'spin' : ''}btn ms-2  custom`}
-               animate={{ rotate: isSpinning ? 540 : 0 }}
-               transition={{ duration: 1 }}
-               disabled={rolling || isSpinning}
-            >
-               Roll Custom
-            </motion.button>
+
+<button
+          onClick={() => handleClick(customSides)}
+          className='ms-2 custom'
+          disabled={rolling || isRolling}
+        >
+          {isRolling ? 'Rolling...' : 'Roll Custom' } 
+        </button>
+
          </div>
          <div>  
             {errorMessage ? ( 

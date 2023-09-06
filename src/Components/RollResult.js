@@ -6,11 +6,11 @@ export default function RollResult(props){
 
    return(
       <div>
-         <span className='display-6'>Last Roll:</span>
+         <h3 className='display-6'>Last Roll:</h3>
          {props.results.length > 0 ? (
-           <h1 className = 'display-1'>{props.rolling ? "..." : number}</h1>
+           <span className = 'display-1'>{props.rolling ? "..." : number}</span>
          ) : (
-           <h1 className = 'display-1'>&nbsp;</h1>
+           <span className = 'display-1'>&nbsp;</span>
          )}
       </div>
    )

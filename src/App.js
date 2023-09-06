@@ -7,6 +7,7 @@ import React from 'react'
 import ClearResults from './Components/ClearResults';
 import CustomRoll from './Components/CustomRoll';
 import RollResult from './Components/RollResult';
+import PercentileDice from './Components/PercentileDiceButton';
 
 
 
@@ -51,7 +52,7 @@ console.log(results)
       results={results} 
       rolling={rolling}
    />
-
+ 
     <Dice
       rolling={rolling}
       getRandomInt={getRandomInt}

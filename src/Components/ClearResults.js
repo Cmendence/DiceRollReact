@@ -11,7 +11,7 @@ function handleClear() {
 }
 
    return(
-   <button className={`btn ${isCleared? 'btn-success' : 'clear'} mb-2 mt-1`} onClick={()=> handleClear()}>
+   <button className={`btn btn-sm text-light ${isCleared? 'btn-success' : 'clear'} mb-1`} onClick={()=> handleClear()}>
       {isCleared ? 'Cleared!' : 'Clear Results'}
    </button>
    )
