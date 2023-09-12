@@ -26,7 +26,7 @@ export default function PercentileDiceButton(
       setTimeout(() => {
           setIsSpinning(false)
           const result = getRandomInt(sides);
-          addResult(sides, result);
+          addResult(sides, `${result}%`);
           stopRolling()
          }, 900);
    };
