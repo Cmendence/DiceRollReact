@@ -13,13 +13,20 @@ import RollResult from './Components/RollResult';
 
 function App() {
    
-   const [results, setResults] = React.useState([])
+   const [results, setResults] = React.useState(
+      () => JSON.parse(localStorage.getItem("results")) || []
+   )
    const [rolling, setRolling] = React.useState(false);
    
    function getRandomInt(max) {
       let result = Math.floor(Math.random() * Math.floor(max)) + 1;
       return result
     }
+
+
+React.useEffect(() => {
+   localStorage.setItem("results", JSON.stringify(results))
+}, [results])
 
 function addResult(sides, result){
    const newResult = {
